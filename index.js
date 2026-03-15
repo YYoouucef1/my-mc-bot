@@ -7,9 +7,9 @@ http.createServer((req, res) => {
 }).listen(process.env.PORT || 3000); 
 
 function startBot() {
-  const bot = mineflayer.createBot({
-    host: '4_player_in_1_world.aternos.me',
-    port: 52892,
+const bot = mineflayer.createBot({
+    host: 'marlin.aternos.host', // العنوان الجديد
+    port: 52892,                // البورت الجديد
     username: '1YouceF1_Admin', 
     version: '1.20.1',
     auth: 'offline'

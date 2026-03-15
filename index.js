@@ -14,7 +14,7 @@ function startBot() {
     host: '4_player_in_1_world.aternos.me', // العنوان من صورتك
     port: 52892,                         // البورت من صورتك
     username: '1YouceF1_Admin', 
-    version: '1.21.11',                   // تم التحديث لنسخة سيرفرك
+    version: '1.21.1',                   // تم التحديث لنسخة سيرفرك
     auth: 'offline'
   })
 

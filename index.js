@@ -1,33 +1,33 @@
 const mineflayer = require('mineflayer')
 const http = require('http')
 
-// إنشاء سيرفر بسيط ليبقى الموقع يعمل على Render
+// سيرفر ويب بسيط لـ Render
 http.createServer((req, res) => {
-  res.write("Bot is Live and accepting Resource Packs");
+  res.write("Bot is Live on 1.21.1");
   res.end();
 }).listen(process.env.PORT || 3000); 
 
+console.log("🚀 جاري تشغيل المحرك المطور لنسخة 1.21.1...");
+
 function startBot() {
   const bot = mineflayer.createBot({
-    host: 'marlin.aternos.host', 
-    port: 52892,                
+    host: '4_player_in_1_world.aternos.me', // العنوان من صورتك
+    port: 52892,                         // البورت من صورتك
     username: '1YouceF1_Admin', 
-    version: '1.20.1',
+    version: '1.21.11',                   // تم التحديث لنسخة سيرفرك
     auth: 'offline'
   })
 
-  // 1. عند دخول السيرفر
   bot.on('spawn', () => {
-    console.log('✅ Bot joined the server!')
+    console.log('✅ تم دخول البوت بنجاح! ابحث عنه في السيرفر الآن.')
   })
 
-  // 2. قبول الريسورس باك (الحل لمشكلتك)
+  // قبول الريسورس باك تلقائياً
   bot.on('resourcePack', () => {
-    console.log('📦 Accepting Resource Pack...')
+    console.log('📦 تم استلام الريسورس باك وقبوله.')
     bot.acceptResourcePack();
   });
 
-  // 3. نظام الـ TP للجميع
   bot.on('chat', (username, message) => {
     if (username === bot.username) return;
     const parts = message.split(' ')
@@ -36,13 +36,12 @@ function startBot() {
     }
   })
 
-  // 4. التعامل مع الأخطاء وإعادة الاتصال
-  bot.on('error', (err) => console.log('❌ Error:', err.message))
+  bot.on('error', (err) => console.log('❌ خطأ:', err.message))
+  
   bot.on('end', () => {
-    console.log('🔄 Disconnected! Reconnecting in 10s...')
+    console.log('🔄 انقطع الاتصال، سأعود بعد 10 ثوانٍ...')
     setTimeout(startBot, 10000)
   })
 }
 
-// تشغيل المحرك
 startBot()
